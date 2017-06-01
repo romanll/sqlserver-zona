@@ -6,6 +6,7 @@
  * Time: 09:34
  */
 
+//phpinfo();
 //PDO
 /*
 try{
@@ -78,8 +79,10 @@ if($res){
 }
 */
 
-$nombre='Elsa Pato';
-$correo='elsapato@hotmail.com';
+//devolviendo un entero(id PK AI)
+$nombre='qwertyu';
+$correo='asdfghjk@hotmail.com';
+/*
 $id=0;
 $procedimientoTres="{CALL spTres(?,?,?)}";
 $parametros=array(
@@ -88,15 +91,27 @@ $parametros=array(
     array($id,SQLSRV_PARAM_OUT),
 );
 $res=sqlsrv_query($conn,$procedimientoTres,$parametros);
-//var_dump($res);
+echo "El identificador del registro insertado es $id";
+*/
+
+//devolviendo registro de insercion
+
+$procedimientoCuatro="{CALL spCuatro(?,?)}";
+$parametros=array(
+    array($nombre,SQLSRV_PARAM_IN),
+    array($correo,SQLSRV_PARAM_IN)
+);
+$res=sqlsrv_query($conn,$procedimientoCuatro,$parametros);
 if($res){
-    var_dump(sqlsrv_get_field($res,0));
+    //var_dump(sqlsrv_get_field($res,0));
     var_dump(sqlsrv_fetch_object($res));
-    print_r(sqlsrv_errors());
+    //print_r(sqlsrv_errors());
 }
 else{
     print_r(sqlsrv_errors());
 }
+
+
 
 
 

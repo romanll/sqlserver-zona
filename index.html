@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Prueba</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <form action="#" id="form-asignaciones" class="form form-horizontal">
+            <div class="form-group">
+                <label for="agencia" class="col-md-2 control-label">Agencia</label>
+                <div class="col-md-4">
+                    <select name="agencia" id="agencia" class="form-control" required>
+                        <option value="">Seleccionar</option>
+                        <option value="1785">AUTOMOTRIZ INTERNACIONAL SA DE CV</option>
+                        <option value="1846">GIMSA AUTOMOTRIZ SA DE CV</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="productos" class="col-md-2 control-label">Productos</label>
+                <div class="col-md-4">
+                    <select name="productos" id="productos" class="form-control" required>
+                        <option value="">Selecionar</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <!--  asesores -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="asesores">Asesores</label>
+                            <select name="asesores" id="asesores" class="form-control" required>
+                                <option value="">Seleccionar</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="cantidad">Cantidad</label>
+                            <input type="number" id="cantidad" name="cantidad" class="form-control" min="1" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="monto">Monto</label>
+                            <input type="number" id="monto" name="monto" class="form-control" min="1" required>
+                        </div>
+                    </div>
+                    <hr>
+                    <h4>Com Esp</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Asesor</label>
+                        </div>
+                        <div class="col-md-3">
+                            <label>Cantidad</label>
+                        </div>
+                        <div class="col-md-3">
+                            <label>Monto</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <select name="asesor[]" id="asesor1" class="form-control asesor">
+                                <option value="">Seleccionar</option>
+                            </select>
+                            <input type="hidden" name="asesorNombre[]" id="asesorNombre1" class="asesorNombre">
+                        </div>
+                        <div class="col-md-3">
+                            <input type="number" id="cantidadExtra1" name="cantidadExtra[]" class="form-control" min="0">
+                        </div>
+                        <div class="col-md-3">
+                            <input type="number" id="montoExtra1" name="montoExtra[]" class="form-control" min="0">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <select name="asesor[]" id="asesor2" class="form-control asesor">
+                                <option value="">Seleccionar</option>
+                            </select>
+                            <input type="hidden" name="asesorNombre[]" id="asesorNombre2" class="asesorNombre">
+                        </div>
+                        <div class="col-md-3">
+                            <input type="number" id="cantidadExtra2" name="cantidadExtra[]" class="form-control" min="0">
+                        </div>
+                        <div class="col-md-3">
+                            <input type="number" id="montoExtra2" name="montoExtra[]" class="form-control" min="0">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <select name="asesor[]" id="asesor3" class="form-control asesor">
+                                <option value="">Seleccionar</option>
+                            </select>
+                            <input type="hidden" name="asesorNombre[]" id="asesorNombre3" class="asesorNombre">
+                        </div>
+                        <div class="col-md-3">
+                            <input type="number" id="cantidadExtra3" name="cantidadExtra[]" class="form-control" min="0">
+                        </div>
+                        <div class="col-md-3">
+                            <input type="number" id="montoExtra3" name="montoExtra[]" class="form-control" min="0">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <select name="asesor[]" id="asesor4" class="form-control asesor">
+                                <option value="">Seleccionar</option>
+                            </select>
+                            <input type="hidden" name="asesorNombre[]" id="asesorNombre4" class="asesorNombre">
+                        </div>
+                        <div class="col-md-3">
+                            <input type="number" id="cantidadExtra4" name="cantidadExtra[]" class="form-control" min="0">
+                        </div>
+                        <div class="col-md-3">
+                            <input type="number" id="montoExtra4" name="montoExtra[]" class="form-control" min="0">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <select name="asesor[]" id="asesor5" class="form-control asesor">
+                                <option value="">Seleccionar</option>
+                            </select>
+                            <input type="hidden" name="asesorNombre[]" id="asesorNombre5" class="asesorNombre">
+                        </div>
+                        <div class="col-md-3">
+                            <input type="number" id="cantidadExtra5" name="cantidadExtra[]" class="form-control" min="0">
+                        </div>
+                        <div class="col-md-3">
+                            <input type="number" id="montoExtra5" name="montoExtra[]" class="form-control" min="0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="col-md-6">
+                <button class="btn btn-success pull-right" type="submit">Aceptar</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    $("#agencia").change(function(e){
+        var agencia=$(this).val();
+        //obtener los productos de la agencia
+        if(!isNaN(parseInt(agencia))){
+            mostrarProductos(agencia)
+            mostrarAsesores(agencia);
+            mostrarAsesoresOpcional(agencia)
+        }
+        else{
+            $("#productos option[value!='']").remove();
+            $("#asesores option[value!='']").remove();
+        }
+    });
+
+    $(".asesor").change(function(e){
+        //copiar el valor en el input de nombreAsesor
+        var nombre=$(this).find('option:selected').text();
+        console.info(nombre);
+        $(this).next().val(nombre);
+        //console.log($(this).find('option:selected').text());
+    });
+
+    function mostrarProductos(agencia){
+        var req=$.ajax({
+            data:{id:agencia},
+            dataType:'json',
+            type:'post',
+            url:'consultarProductos.php'
+        });
+        req.done(function(resultado){
+            if(resultado.status){
+                //remover
+                $("#productos option[value!='']").remove();
+                //mostrar los elementos en <select>
+                for(var i in resultado.datos){
+                    var opcion=document.createElement('option');
+                    opcion.setAttribute('value',resultado.datos[i].IdProducto)
+                    opcion.appendChild(document.createTextNode(resultado.datos[i].NombreProducto))
+                    //agregar
+                    $("#productos").append(opcion);
+                }
+            }
+            else{
+                //mostrar error
+                console.log(resultado);
+            }
+        });
+        req.fail(function(error){console.log(error)})
+    }
+
+    function mostrarAsesores(agencia){
+        var req=$.ajax({
+            data:{agencia:agencia},
+            dataType:'json',
+            type:'post',
+            url:'consultarAsesores.php'
+        });
+        req.done(function(resultado){
+            if(resultado.status){
+                console.log(resultado.datos);
+                //mostrar los elementos en <select>
+                //remover
+                $("#asesores option[value!='']").remove();
+                //insertar
+                for(var i in resultado.datos){
+                    var opcion=document.createElement('option');
+                    opcion.setAttribute('value',resultado.datos[i].IdAsesor)
+                    opcion.appendChild(document.createTextNode(resultado.datos[i].Nombre))
+                    //agregar
+                    $("#asesores").append(opcion);
+                }
+            }
+            else{
+                //mostrar error
+                console.log(resultado);
+            }
+        });
+        req.fail(function(error){console.log(error)})
+    }
+
+    function mostrarAsesoresOpcional(agencia){
+        var req=$.ajax({
+            data:{agencia:agencia},
+            dataType:'json',
+            type:'post',
+            url:'consultarAsesoresOpcional.php'
+        });
+        req.done(function(resultado){
+            if(resultado.status){
+                console.log(resultado.datos);
+                //mostrar los elementos en <select>
+                //remover
+                $(".asesor option[value!='']").remove();
+                //insertar
+                for(var i in resultado.datos){
+                    var opcion=document.createElement('option');
+                    opcion.setAttribute('value',resultado.datos[i].IdAsesor)
+                    opcion.appendChild(document.createTextNode(resultado.datos[i].Nombre))
+                    //agregar
+                    $(".asesor").append(opcion);
+                }
+            }
+            else{
+                //mostrar error
+                console.log(resultado);
+            }
+        });
+        req.fail(function(error){console.log(error)})
+    }
+
+    $("#form-asignaciones").submit(function(e){
+        e.preventDefault();
+        var fd=new FormData(document.getElementById('form-asignaciones'));
+        fd.append('nombreAsesor',$("#asesores option:selected").text());
+        var req=$.ajax({
+            data:fd,
+            dataType:'json',
+            type:'post',
+            url:'asignar.php',
+            processData:false,
+            contentType:false
+        });
+        req.done(function (respuesta) {
+            console.log(respuesta);
+        });
+        req.fail(function(error){console.info(error)});
+    });
+</script>
+</body>
+</html>
