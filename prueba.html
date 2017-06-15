@@ -16,8 +16,6 @@
                 <div class="col-md-4">
                     <select name="agencia" id="agencia" class="form-control" required>
                         <option value="">Seleccionar</option>
-                        <option value="1785">AUTOMOTRIZ INTERNACIONAL SA DE CV</option>
-                        <option value="1846">GIMSA AUTOMOTRIZ SA DE CV</option>
                     </select>
                 </div>
             </div>
@@ -146,6 +144,35 @@
     </div>
 </div>
 <script>
+    //cargar agencias
+    (function(){
+        //cargar las agencias
+        var req=$.ajax({
+            dataType:'json',
+            type:'GET',
+            url:'consultarAgencias.php'
+        });
+        req.done(function (response) {
+            //console.log(response);
+            $("#agencia option[value!='']").remove();
+            if(response.status){
+                //insertar los datos
+                for(var i in response.datos){
+                    var opcion=document.createElement('option');
+                    opcion.setAttribute('value',response.datos[i].IdAgencia)
+                    opcion.appendChild(document.createTextNode(response.datos[i].NombreAgencia))
+                    //agregar
+                    $("#agencia").append(opcion);
+                }
+            }
+            else{
+                console.info(response);
+            }
+        });
+        req.fail(function(error){
+            console.log(error);
+        })
+    })();
     $("#agencia").change(function(e){
         var agencia=$(this).val();
         //obtener los productos de la agencia
@@ -269,7 +296,11 @@
             contentType:false
         });
         req.done(function (respuesta) {
-            console.log(respuesta);
+            //console.log(respuesta);
+            console.log(Date());
+            for(var i in respuesta){
+                console.info(respuesta[i].datos.mensaje)
+            }
         });
         req.fail(function(error){console.info(error)});
     });

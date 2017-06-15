@@ -6,7 +6,7 @@
  * Time: 18:05
  */
 
-include_once 'Conexion.php';
+include_once 'db/Conexion.php';
 
 $db=new Conexion();
 

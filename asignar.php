@@ -7,9 +7,7 @@
  */
 
 
-include_once 'Conexion.php';
-
-//var_dump($_POST);die();
+include_once 'db/Conexion.php';
 
 
 if(
@@ -29,7 +27,6 @@ if(
     $nombreAsesor=filter_var($_POST['nombreAsesor'],FILTER_SANITIZE_STRING);
 
     //db
-
     $db=new Conexion();
 
     $sentencia="{CALL spAsignarComision(?,?,?,?,?,?)}";
@@ -41,14 +38,21 @@ if(
         array($nombreAsesor,SQLSRV_PARAM_IN),
         array($monto,SQLSRV_PARAM_IN)
     );
+	
     $resp=$db->query($sentencia,$parametros);
+
     if($resp){
         $datos=$db->rows($resp);
         $respuesta[]=array('datos'=>$datos[0],'status'=>true);
         //echo json_encode(array('datos'=>$datos,'status'=>true));
     }
+	//hubo errores?
+	$errores=$db->errors();
+	if(!is_null($errores)){
+		echo utf8_encode($errores[0]['message']);
+	}
+	//var_dump(sqlsrv_errors());
     $db->cerrar();
-
 
     //existen comisones especiales?
     if(!empty($_POST['asesor'])){
@@ -64,7 +68,8 @@ if(
                 $montoComEspX=$montoExtra[$i];
                 $comEspNumX=$i+1;
                 //llamar a la comsion especial $i
-                $sentenciaEsp="{CALL spAsignarComisionEspecial(?,?,?,?,?,?,?)}";
+                //$sentenciaEsp="{CALL spAsignarComisionEspecial(?,?,?,?,?,?,?)}";
+                $sentenciaEsp="{CALL spAsignarComisionEspecialX(?,?,?,?,?,?,?)}";
                 $parametrosEsp=array(
                     array($agencia,SQLSRV_PARAM_IN),
                     array($producto,SQLSRV_PARAM_IN),
@@ -74,15 +79,16 @@ if(
                     array($montoComEspX,SQLSRV_PARAM_IN),
                     array($comEspNumX,SQLSRV_PARAM_IN)
                 );
-                //var_dump($parametrosEsp);
 
                 $db=new Conexion();
                 $respComEsp=$db->query($sentenciaEsp,$parametrosEsp);
                 if($respComEsp){
+                    print_r(sqlsrv_errors());
                     $datos=$db->rows($respComEsp);
                     //echo json_encode(array('datos'=>$datos,'status'=>true));
                     $respuesta[]=array('datos'=>$datos[0],'status'=>true);
                 }
+                else{print_r(sqlsrv_errors());}
                 $db->cerrar();
             }
         }
